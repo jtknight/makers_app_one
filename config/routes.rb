@@ -1,4 +1,12 @@
 MakersAppOne::Application.routes.draw do
+
+  devise_for :brands
+  root "static_pages#home"
+  
+  match "/about", to: "static_pages#about", via: 'get'
+  match "/contact", to: "static_pages#contact", via: 'get'
+  match "/terms", to: "static_pages#terms", via: 'get'
+  match "/privacy", to: "static_pages#privacy", via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
