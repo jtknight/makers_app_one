@@ -1,0 +1,17 @@
+<% provide(:title, @brand.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @brand.name %>
+      </h1>
+    </section>
+  </aside>
+
+  <div class="span8">
+    <h3><%= @brand.website %></h3>
+    <h3><%= @brand.hometown %>, <%= @brand.homestate %></h3>
+    <p><%= @brand.description %></p>
+  </div>
+  
+</div>

@@ -1,6 +1,8 @@
 MakersAppOne::Application.routes.draw do
 
-  devise_for :brands
+  devise_for :brands, :path_prefix => 'my'
+  resources :brands
+
   root "static_pages#home"
   
   match "/about", to: "static_pages#about", via: 'get'

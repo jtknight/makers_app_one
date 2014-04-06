@@ -1,0 +1,13 @@
+<% provide(:title, 'All brands') %>
+<h1>All brands</h1>
+
+<%= will_paginate %>
+
+<ul class="brands">
+  <%= render @brands %>
+</ul>
+  <%# note that this syntax konws to iterate through a collection of User %>
+  <%# objects and render each of them using the '_brand.html.erb' partial %>
+
+
+<%= will_paginate %>
