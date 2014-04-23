@@ -18,11 +18,11 @@ class Brand < ActiveRecord::Base
   validate :email_matches_website
 
   def email_matches_website
-  	email_domain = email.partition("@")[2].downcase
-  	website_domain = get_host_without_www
-  	if email_domain != website_domain
-  		errors.add(:email, "address must match the domain of the website.  This helps protect the security of your brand identity.  For example, if the website is 'www.MakersAtlas.com', then 'contact@makersatlas.com' is acceptable, but 'contact@gmail.com' is NOT acceptable.")
-  	end
+    email_domain = email.partition("@")[2].downcase
+    website_domain = get_host_without_www
+    if email_domain != website_domain
+      errors.add(:email, "address must match the domain of the website.  This helps protect the security of your brand identity.  For example, if the website is 'www.MakersAtlas.com', then 'contact@makersatlas.com' is acceptable, but 'contact@gmail.com' is NOT acceptable.")
+    end
   end
 
   def get_host_without_www
@@ -31,5 +31,4 @@ class Brand < ActiveRecord::Base
     host = uri.host.downcase
     host.start_with?('www.') ? host[4..-1] : host
   end
-  
 end
