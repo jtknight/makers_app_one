@@ -1,7 +1,7 @@
 MakersAppOne::Application.routes.draw do
 
   devise_for :brands, :path_prefix => 'my'
-  resources :brands
+  resources :brands, only: [:index, :show, :edit, :update]
 
   root "static_pages#home"
   

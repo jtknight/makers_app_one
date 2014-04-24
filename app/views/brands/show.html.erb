@@ -1,5 +1,15 @@
 <% provide(:title, @brand.name) %>
 <div class="row">
+  <div class="span12">
+    <%= link_to "back to list", brands_path %>
+    <% if brand_signed_in? %>
+      <% if @brand.id == current_brand.id %>
+        <%= link_to "Edit Profile", edit_brand_path(current_brand) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
   <aside class="span4">
     <section>
       <h1>
