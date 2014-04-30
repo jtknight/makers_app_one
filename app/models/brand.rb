@@ -1,5 +1,8 @@
 class Brand < ActiveRecord::Base
 	require 'uri'
+  #mount the carrierwave uploader to give Brands a profile avatar pic
+  mount_uploader :avatar, AvatarUploader
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

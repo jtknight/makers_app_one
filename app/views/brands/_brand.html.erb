@@ -1,4 +1,11 @@
-<li>
-  <h2><%= link_to brand.name, brand %></h2>
-  <p><%= brand.hometown %>, <%= brand.homestate %></p>
+<li class="span12">
+	<div class="row">
+		<div class="span2 offset1">
+			<%= image_tag brand.avatar_url(:favicon) if brand.avatar? %>
+		</div>
+		<div class="span8">
+	  		<h2><%= link_to brand.name, brand %></h2>
+	  		<p><%= brand.hometown %>, <%= brand.homestate %></p>
+	  	</div>
+  	</div>
 </li>

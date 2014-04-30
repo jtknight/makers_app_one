@@ -1,12 +1,12 @@
 <% provide(:title, @brand.name) %>
 <div class="row">
   <div class="span12">
-    <%= link_to "back to list", brands_path %>
-    <% if brand_signed_in? %>
+    <p><%= link_to "back to list", brands_path %></p>
+    <p><% if brand_signed_in? %>
       <% if @brand.id == current_brand.id %>
         <%= link_to "Edit Profile", edit_brand_path(current_brand) %>
       <% end %>
-    <% end %>
+    <% end %></p>
   </div>
 </div>
 <div class="row">
@@ -16,6 +16,7 @@
         <%= @brand.name %>
       </h1>
     </section>
+    <%= image_tag @brand.avatar_url(:thumb) if @brand.avatar? %>
   </aside>
 
   <div class="span8">

@@ -30,7 +30,8 @@ class BrandsController < ApplicationController
 	    	params.require(:brand).permit(:name, :email, :password,
 	    								  :password_confirmation,
 	    								  :website, :hometown,
-	    								  :homestate, :description)
+	    								  :homestate, :description,
+	    								  :avatar, :avatar_cache)
 	    end
 
 		# Before Filters
