@@ -2,6 +2,7 @@ MakersAppOne::Application.routes.draw do
 
   devise_for :brands, :path_prefix => 'my'
   resources :brands, only: [:index, :show, :edit, :update]
+  resources :videos, only: [:create, :destroy]
 
   root "static_pages#home"
   

@@ -1,5 +1,7 @@
 class Brand < ActiveRecord::Base
 	require 'uri'
+
+  has_many :videos, dependent: :destroy
   #mount the carrierwave uploader to give Brands a profile avatar pic
   mount_uploader :avatar, AvatarUploader
 
@@ -12,9 +14,9 @@ class Brand < ActiveRecord::Base
   before_save { self.hometown = hometown.capitalize }
   before_save { self.homestate = homestate.upcase }
 
-  validates :email, uniqueness: true
-  validates :name, 	      presence: true, length: { maximum: 50}, uniqueness: true
-  validates :website,     presence: true, length: { maximum: 100}, uniqueness: true
+  validates :email, uniqueness: { case_sensitive: false }
+  validates :name, 	      presence: true, length: { maximum: 50}, uniqueness: { case_sensitive: false }
+  validates :website,     presence: true, length: { maximum: 100}, uniqueness: { case_sensitive: false }
   validates :description, length: { maximum: 1000}
   validates :hometown,    presence: true, length: { maximum: 50}
   validates :homestate,   presence: true, length: { maximum: 2}

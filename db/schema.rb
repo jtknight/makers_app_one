@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429175253) do
+ActiveRecord::Schema.define(version: 20140509000612) do
 
   create_table "brands", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -36,5 +36,13 @@ ActiveRecord::Schema.define(version: 20140429175253) do
 
   add_index "brands", ["email"], name: "index_brands_on_email", unique: true
   add_index "brands", ["reset_password_token"], name: "index_brands_on_reset_password_token", unique: true
+
+  create_table "videos", force: true do |t|
+    t.string   "link"
+    t.string   "link_html"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "brand_id"
+  end
 
 end

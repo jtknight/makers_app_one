@@ -26,6 +26,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.2)
+    auto_html (1.6.4)
+      redcarpet (~> 3.1)
+      rinku (~> 1.5.0)
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.2)
     bootstrap-sass (2.3.2.0)
@@ -84,7 +87,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.3)
     minitest (4.7.5)
-    multi_json (1.9.3)
+    multi_json (1.10.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -114,6 +117,8 @@ GEM
     rake (10.3.1)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.1.1)
+    rinku (1.5.1)
     rmagick (2.13.2)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
@@ -174,6 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  auto_html
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (= 2.3.2.0)
   bootstrap-will_paginate (= 0.0.9)

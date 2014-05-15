@@ -20,9 +20,18 @@
   </aside>
 
   <div class="span8">
-    <h3><%= @brand.website %></h3>
-    <h3><%= @brand.hometown %>, <%= @brand.homestate %></h3>
-    <p><%= @brand.description %></p>
+    <section>
+      <h3><%= @brand.website %></h3>
+      <h3><%= @brand.hometown %>, <%= @brand.homestate %></h3>
+      <p><%= @brand.description %></p>
+    </section>
+    <section>
+      <% if @brand.videos.any? %>
+        <% for video in @brand.videos %>
+          <%= video.link_html %>
+        <% end %>
+      <% end %>
+    </section>
   </div>
   
 </div>

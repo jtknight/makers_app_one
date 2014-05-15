@@ -12,6 +12,7 @@ class BrandsController < ApplicationController
 
 	def edit
 		#note that '@brand' is omitted here because it is defined by the before filter
+		@video = current_brand.videos.build
 	end
 
 	def update
