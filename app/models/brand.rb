@@ -5,6 +5,9 @@ class Brand < ActiveRecord::Base
   #mount the carrierwave uploader to give Brands a profile avatar pic
   mount_uploader :avatar, AvatarUploader
 
+  # geocode using the Geocoder gem
+  geocoded_by :address   # can also be an IP address
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -21,6 +24,16 @@ class Brand < ActiveRecord::Base
   validates :hometown,    presence: true, length: { maximum: 50}
   validates :homestate,   presence: true, length: { maximum: 2}
   validate :email_matches_website
+  after_validation :geocode, if: ->(brand){ brand.address.present? and brand.address_changed? } # auto-fetch coordinates
+
+  def address
+    [hometown, homestate, "USA"].compact.join(', ')
+  end
+
+  def address_changed?
+    attrs = %w(hometown homestate)
+    attrs.any?{|a| send "#{a}_changed?"}
+  end
 
   def email_matches_website
     email_domain = email.partition("@")[2].downcase

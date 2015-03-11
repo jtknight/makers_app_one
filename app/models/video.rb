@@ -1,6 +1,9 @@
 class Video < ActiveRecord::Base
+	include RankedModel
+  		ranks :row_order
+  		
 	belongs_to :brand
-	default_scope -> { order('created_at DESC') }
+	default_scope -> { order('row_order ASC') }
 	validates :link, presence: true, length: { maximum: 1000 }
 	validates :link_html, presence: true, length: { maximum: 1000 }
 	validates :brand_id, presence: true

@@ -27,6 +27,7 @@
     </section>
     <section>
       <% if @brand.videos.any? %>
+        <h3><%= @brand.videos.count %></h3>
         <% for video in @brand.videos %>
           <%= video.link_html %>
         <% end %>

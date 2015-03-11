@@ -2,7 +2,10 @@ MakersAppOne::Application.routes.draw do
 
   devise_for :brands, :path_prefix => 'my'
   resources :brands, only: [:index, :show, :edit, :update]
-  resources :videos, only: [:create, :destroy]
+  resources :videos, only: [:create, :destroy, :update]
+  resources :videos do
+    post :update_row_order, on: :collection
+  end
 
   root "static_pages#home"
   

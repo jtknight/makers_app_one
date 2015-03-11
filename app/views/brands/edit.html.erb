@@ -29,6 +29,7 @@
     <%= link_to "Edit account settings", edit_brand_registration_path %>
   </div>
   <div class="span4">
+    <!--  Original formulation
     <% if @brand.videos.any? %>
       <h2>Videos</h2>
       <% for video in @brand.videos %>
@@ -40,6 +41,27 @@
         </div>
       <% end %>
     <% end %>
+    -->
+    <% if @brand.videos.any? %>
+      <h2>Videos</h2>
+      <table class="table table-bordered table-striped" id="sortable">
+        <tbody>
+          <% @brand.videos.each do |video| %>
+            <tr data-item-id=<%= "#{video.id}" %> class="item">
+              <td>
+                <%= video.link_html %>
+              </td>
+              <td>
+                <%= button_to "delete", video, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     class: "btn btn-primary pull-right" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
     <h2>Add a new video</h2>
     <%= render 'shared/video_form' %>
   </div>

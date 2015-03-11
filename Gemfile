@@ -4,6 +4,7 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.2'
 gem 'bootstrap-sass', '2.3.2.0'
+gem 'jquery-ui-rails'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
@@ -12,6 +13,9 @@ gem 'devise'
 gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
 gem 'auto_html'
+gem 'ranked-model'
+gem 'geocoder'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

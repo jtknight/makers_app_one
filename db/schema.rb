@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509000612) do
+ActiveRecord::Schema.define(version: 20150310121431) do
 
   create_table "brands", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140509000612) do
     t.string   "hometown"
     t.string   "homestate"
     t.string   "avatar"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "brands", ["email"], name: "index_brands_on_email", unique: true
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140509000612) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "brand_id"
+    t.integer  "row_order"
   end
 
 end
